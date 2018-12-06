@@ -6,7 +6,6 @@
 	$lname=$_POST['lname'];
 	$add=$_POST['add'];
 	$city=$_POST['city'];
-	//$state=$_POST['state'];
 	$country=$_POST['country_sel'];
 	$zipcode=$_POST['zipcode'];
 	
@@ -14,23 +13,19 @@
 		        "GroupPrivateToken" => $GroupPrivateToken,
 		        "Items" => array(array(
 		            "Id" => 0,
-		            //"CatalogNumber" => "SKU",
 		            "Quantity" => 1,
 		            "UnitPrice" => 0,
 		            "Description" => "ציפית לתינוק"
 		        ),array(
 		            "Id" => 0,
-		            //"CatalogNumber" => "SKU",
 		            "Quantity" => 1,
 		            "UnitPrice" => 27, 
 		            "Description" => "משלוח"
 		        )),
-			  //"Custom1" => "123",
 			  "Custom2" => $email,
-			  //"Custom3" => $state,
 			  "Custom4" => $country,
 			  "RedirectURL" => "https://www.ndoto.co.il/pages/thank-you/",
-			  "IPNURL" => "https://apps.adexlabs.com/app/billing_upgrade_test/order_csv/ipn.php",
+			  "IPNURL" => "www.example.com/ipn.php",
 			  "EmailAdress" => $email,
 			  "CustomerLastName" => $lname,
 			  "CustomerFirstName" =>$name,
@@ -51,6 +46,6 @@
 
 	$url_to_view = json_decode($result)->URL;
 	$resp['status'] = "success";
-  $resp['url'] = $url_to_view;  
-	echo json_encode($resp);
+        $resp['url'] = $url_to_view;  
+	echo json_encode($resp);//Return URL, That load in I-fram in store
 ?>
